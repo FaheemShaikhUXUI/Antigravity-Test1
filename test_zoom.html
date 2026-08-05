@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin: 0; padding: 0; display: flex; align-items: center; justify-content: center; height: 100vh; background: #333; }
+  .wrapper { position: relative; max-width: 90%; max-height: 90vh; }
+  img { display: block; max-width: 100%; max-height: 90vh; }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <img id="img" src="https://via.placeholder.com/800x600" />
+  </div>
+  <script>
+    const img = document.getElementById("img");
+    let scale = 1;
+    let tx = 0; let ty = 0;
+    img.style.transformOrigin = "0 0";
+    img.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const rect = img.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const prev = scale;
+      scale += e.deltaY < 0 ? 0.2 : -0.2;
+      scale = Math.max(1, Math.min(scale, 20));
+      tx -= (x / prev) * (scale - prev);
+      ty -= (y / prev) * (scale - prev);
+      if (scale === 1) { tx = 0; ty = 0; }
+      img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+    });
+  </script>
+</body>
+</html>

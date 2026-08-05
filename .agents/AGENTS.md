@@ -1,0 +1,1 @@
+- Always provide the localhost link (e.g. http://localhost:5173/) and the local network link (e.g. http://192.168.x.x:5173/) that can be opened on other systems after making any changes to the project.
