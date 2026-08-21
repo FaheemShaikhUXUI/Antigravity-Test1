@@ -1,0 +1,10 @@
+{
+  "style": "base-rhea",
+  "tailwind": {
+    "baseColor": "neutral"
+  },
+  "iconLibrary": "lucide",
+  "rtl": true,
+  "menuColor": "default",
+  "menuAccent": "subtle"
+}
